@@ -140,20 +140,7 @@ object MoviceDataAnalysis {
     val userCost=movieClusterModel.computeCost(userVectors)
     println(userCost)
 
-    /*调节用户分类数次数*/
-    val userCosts=Seq(1,3,5,7,10,13,20).map{
-      param =>
-        (param,KMeans.train(user_train,param,50).computeCost(user_test))
-    }
-    println("User clustering cross-validation:")
-    userCosts.foreach { case (k, cost) => println(f"WCSS for K=$k id $cost%2.2f") }
-    /*调节电影分类数次数*/
-    val movieCosts=Seq(1,3,5,7,10,13,20).map{
-      param =>
-        (param,KMeans.train(user_train,param,50).computeCost(user_test))
-    }
-    println("Movie clustering cross-validation:")
-    movieCosts.foreach { case (k, cost) => println(f"WCSS for K=$k id $cost%2.2f") }
+
 
   }
 
