@@ -22,7 +22,7 @@ object InsertDataToMysql1 {
 
     import spark.implicits._
 
-    val df = data.map(x => new User(x._1, x._2, x._3, x._4)).toDF()
+    val df = data.map(x => User(x._1, x._2, x._3, x._4)).toDF()
     df.write.mode(SaveMode.Append).format("jdbc")
       .option("url","jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&characterEncoding=utf8")
       .option("dbtable","user")

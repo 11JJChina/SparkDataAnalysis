@@ -30,7 +30,7 @@ object InsertDataToMysql0 {
       rdd =>
         try{
           conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8", "root", "root")
-          rdd.toIterator.foreach(data => {
+          rdd.foreach(data => {
             ps = conn.prepareStatement(sql)
             ps.setString(1,data._1)
             ps.setString(2,data._2)
