@@ -1,4 +1,4 @@
-package com.zhang
+package com.zhang.mysql
 
 import java.sql.{Connection, DriverManager, PreparedStatement}
 

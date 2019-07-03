@@ -1,4 +1,4 @@
-package com.zhang
+package com.zhang.hive
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
