@@ -206,8 +206,8 @@ object GroupNews {
     */
   def mostSimilartyTitle(strs: Array[String]): String = {
     var map: Map[String, Double] = Map()
-    for(i <- 0 until strs.length){
-      for(j <- i+1 until strs.length){
+    for (i <- 0 until strs.length) {
+      for (j <- i + 1 until strs.length) {
         var similar = similarity(strs(i), strs(j))
         if (map.contains(strs(i)))
           map += (strs(i) -> (map.get(strs(i)).get + similar))
@@ -220,8 +220,8 @@ object GroupNews {
 
       }
     }
-    if(map.size > 0)
-      map.toSeq.sortWith(_._2 > _._2)(0)._1
+    if (map.nonEmpty)
+      map.toSeq.sortWith(_._2 > _._2).head._1
     else
       ""
   }
